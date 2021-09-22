@@ -49,7 +49,7 @@ What metric should we choose for this data?
  
 ### Answer :
 We should proceed with the **Mode** of the Order Amount. The Mode represents the most frequent value in our distribution.
-In terms of the problem statement, **a rather basic inference would be to that the mode denotes the revenue that is most likely to be generated from a given order.**
+In terms of the problem statement, **a rather basic inference would be to assume that the mode denotes the revenue that is most likely to be generated from a given order.**
 Focusing on this amount and trying to get customers to order more than this amount would be the first step in increasing the revenue generated.
  
 The **mode** for this distribution is **153**.
