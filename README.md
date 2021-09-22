@@ -21,7 +21,7 @@ On Shopify, we have exactly 100 sneaker shops, and each of these shops sells onl
 What could be going wrong with this calculation. Think about a better way to evaluate this data
 
 ### Answer:
-The data consists of outliers, as is evident from the unnaturally large difference between the 3rd quartile (390.00) and the max value (704000)
+The data consists of outliers, as is evident from the unnaturally large difference between the 3rd quartile (390.00) and the max value (704000).
 As we know, mean is highly sensitive to the presence of outliers. In our distribution, **the presence of such large outliers is disproportionately inflating the mean.**
  
 This is the reason why the Average Order Value is highly inflated and doesn't make much sense.
@@ -33,7 +33,7 @@ This is the reason why the Average Order Value is highly inflated and doesn't ma
 Outliers usually indicate some anomaly in the data collection process. However, it is also possible for these values to occur naturally. Deleting these values from the data might result in some interesting patterns being lost.
 **In our case, most of the outliers originate from the stores bearing the shop ids 78 and 42.**
 **The customer bearing the user id of 607 has also indulged in very peculiar transactions (all of the max order amounts originate from this user).**
-**These behaviours are worth looking into. Hence, the outliers were persisted with**
+**These behaviours are worth looking into. Hence, the outliers were persisted with.**
  
 ***
 - How to overcome this problem then?
