@@ -21,22 +21,22 @@ On Shopify, we have exactly 100 sneaker shops, and each of these shops sells onl
 What could be going wrong with this calculation. Think about a better way to evaluate this data
 
 ### Answer:
-The data consists of outliers, as is evident from the unnaturally large difference between the 3rd quartile (390.00) and the max value (704000).
-As we know, mean is highly sensitive to the presence of outliers. In our distribution, **the presence of such large outliers is disproportionately inflating the mean.**
+- The data consists of outliers, as is evident from the unnaturally large difference between the 3rd quartile (390.00) and the max value (704000).
+- As we know, mean is highly sensitive to the presence of outliers. In our distribution, **the presence of such large outliers is disproportionately inflating the mean.**
  
-This is the reason why the Average Order Value is highly inflated and doesn't make much sense.
+- This is the reason why the Average Order Value is highly inflated and doesn't make much sense.
 
 ***
-- How to deal with these outliers then?
+How to deal with these outliers then?
 ***
  
 Outliers usually indicate some anomaly in the data collection process. However, it is also possible for these values to occur naturally. Deleting these values from the data might result in some interesting patterns being lost.
-**In our case, most of the outliers originate from the stores bearing the shop ids 78 and 42.**
-**The customer bearing the user id of 607 has also indulged in very peculiar transactions (all of the max order amounts originate from this user).**
-**These behaviours are worth looking into. Hence, the outliers were persisted with.**
+- **In our case, most of the outliers originate from the stores bearing the shop ids 78 and 42.**
+- **The customer bearing the user id of 607 has also indulged in very peculiar transactions (all of the max order amounts originate from this user).**
+- **These behaviours are worth looking into. Hence, the outliers were persisted with.**
  
 ***
-- How to overcome this problem then?
+How to overcome this problem then?
 ***
  
 We can use the other measures of central tendency - **Mode and Median**. These measures see little to no change due to the presence of outliers.
@@ -48,16 +48,16 @@ We can use the other measures of central tendency - **Mode and Median**. These m
 What metric should we choose for this data?
  
 ### Answer :
-We should proceed with the **Mode** of the Order Amount. The Mode represents the most frequent value in our distribution.
-In terms of the problem statement, **a rather basic inference would be to assume that the mode denotes the revenue that is most likely to be generated from a given order.**
-Focusing on this amount and trying to get customers to order more than this amount would be the first step in increasing the revenue generated.
+- We should proceed with the **Mode** of the Order Amount. The Mode represents the most frequent value in our distribution.
+- In terms of the problem statement, **a rather basic inference would be to assume that the mode denotes the revenue that is most likely to be generated from a given order.**
+- Focusing on this amount and trying to get customers to order more than this amount would be the first step in increasing the revenue generated.
  
-The **mode** for this distribution is **153**.
-The **median** for this distribution is **284**.
+- The **mode** for this distribution is **153**.
+- The **median** for this distribution is **284**.
  
   
-Our choice for using the mode is justified by the fact that the most number of observations have an order amount ranging between 100$ and 200$ (1765), which is where our mode lies.
-Whereas, the interval 200$ to 300$ for order amount has 850 observations, which is where our median lies. The median is simply the value that divides our distribution in such a manner that equal number of observations lie above and below this value. In our case, **the mode is more helpful in analysing the order amount generated from customers**.
+- Our choice for using the mode is justified by the fact that the most number of observations have an order amount ranging between 100$ and 200$ (1765), which is where our mode lies.
+- Whereas, the interval 200$ to 300$ for order amount has 850 observations, which is where our median lies. The median is simply the value that divides our distribution in such a manner that equal number of observations lie above and below this value. In our case, **the mode is more helpful in analysing the order amount generated from customers**.
  
   
    
