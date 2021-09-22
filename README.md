@@ -105,13 +105,19 @@ HAVING COUNT( * ) = ( SELECT MAX(TotalOrders) FROM (
 c.	What product was ordered the most by customers in Germany?
  
 ### Answer :
-SELECT * FROM Customers C INNER JOIN Orders O ON C.CustomerID = O.CustomerID
-				 INNER JOIN OrderDetails Od ON O.OrderID = Od.OrderID
+SELECT Od.ProductID ProductID, P.ProductName ProductName, COUNT( * ) NumOfOrders
+FROM Customers C INNER JOIN Orders O ON C.CustomerID = O.CustomerID
+                 INNER JOIN Orderdetails Od ON Od.OrderID = O.OrderID
                  INNER JOIN Products P ON Od.ProductID = P.ProductID
-                 WHERE C.Country = 'Germany'
-                 GROUP BY Od.ProductID
-                 HAVING COUNT( * ) = ( SELECT MAX(TotalOrders) FROM ( 
-												 SELECT Products.ProductID, COUNT( * ) TotalOrders 
-                                                 FROM OrderDetails INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID 
-                                                 GROUP BY OrderDetails.ProductID
-                                                 ));
+WHERE C.Country = 'Germany'
+GROUP BY Od.ProductID, P.ProductName
+HAVING COUNT( * ) = (SELECT MAX(tcount) FROM (
+                          SELECT Od1.ProductID, COUNT( * ) tcount FROM
+                          Customers C1 INNER JOIN Orders O1 ON C1.CustomerID = O1.CustomerID
+                          INNER JOIN Orderdetails Od1 ON Od1.OrderID = O1.OrderID
+                          INNER JOIN Products P1 ON Od1.ProductID = P1.ProductID
+                          WHERE C1.Country = 'Germany'
+                          GROUP BY Od1.ProductID
+                        ))
+
+**Gorgonzola Telino**
