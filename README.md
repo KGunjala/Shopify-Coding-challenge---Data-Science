@@ -81,7 +81,11 @@ How many orders were shipped by Speedy Express in total?
 ### Answer:
 SELECT COUNT( * ) FROM Orders
 
+***
+Output:
 **196**
+***
+
  
  
 ### Question 2:
@@ -93,12 +97,16 @@ FROM Orders O INNER JOIN Employees E
 ON O.EmployeeID = E.EmployeeID
 GROUP BY O.EmployeeID 
 HAVING COUNT( * ) = ( SELECT MAX(TotalOrders) FROM ( 
-												 SELECT EmployeeID, COUNT( * ) TotalOrders 
+						 SELECT EmployeeID, COUNT( * ) TotalOrders 
                                                  FROM Orders 
                                                  GROUP BY EmployeeID
                                                  ));
 
+***
+Output:
 **Peacock**
+***
+
  
   
 ### Question 3:
@@ -119,5 +127,8 @@ HAVING COUNT( * ) = (SELECT MAX(tcount) FROM (
                           WHERE C1.Country = 'Germany'
                           GROUP BY Od1.ProductID
                         ))
-
+***
+Output:
 **Gorgonzola Telino**
+***
+
